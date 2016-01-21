@@ -62,9 +62,9 @@ CRC Design
 * Selects weapon from weapon set
 * Resets score
 
-
 **Collaborators**
-*WeaponSet
+
+* WeaponSet
 
 ###WeaponSet
 **Responsibilities**
@@ -85,6 +85,7 @@ CRC Design
 
 
 **Collaborators**
+
 * WeaponSet
 * Rules
 
@@ -119,8 +120,6 @@ int getWinner(Player p1, Player p2){
     //compare weapons
     //1 - p1 weapon wins, 0 - tie, -1 p2 weapon wins
 }
-
-
 
 ```
 * A new choice is added to an existing game and its relationship to all the other choices is updated.
