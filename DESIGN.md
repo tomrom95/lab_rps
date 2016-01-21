@@ -7,24 +7,86 @@ CompSci 308 : RPS Design
 Initial Design
 =======
 
-###Class 1
+###Weapon
 
-* Bullets are made with asterisks
+* General class for each weapon, doesn’t store what it beats/what beats it
 
-1. You can also order things with numbers
+###WeaponSet
 
+* Stores all of the weapons the Player can use
 
-###Class 2
+###Rules
 
+* Rule set decides what beats what- game gives it 2 weapons and it decides on the winner based on its info
 
+###Player
+
+* Creates player, attaches weapon selected, and maintains win/loss for player
+
+###Game
+
+* Runs game after creating x players, uploading data file for game, and populating the weapon set
 
 CRC Design
 =======
 
-###Class 1
+###Game
+**Responsibilities**
+
+* Knows Players in match
+* Plays game between players
+* Initiates new rounds
+
+**Collaborators**
+
+* Players
+* Rules
+
+###Rules
+**Responsibilities**
+
+* Knows win/loss rules (store in directed graph)
+* Add rule
+* Change rule
+* Delete rule
+* Return winner between weapons
+
+**Collaborators**
+
+* Weapons
+
+###Player
+**Responsibilities**
+*Knows score
+*Updates scores
+*Selects weapon from weapon set
+* Resets score
 
 
-###Class 2
+**Collaborators**
+*WeaponSet
+
+###WeaponSet
+**Responsibilities**
+
+* Knows all weapons
+* Updates enum based on input data file
+* Add weapon
+* Delete Weapon
+
+**Collaborators**
+
+* Weapon
+
+###Weapon
+**Responsibilities**
+
+* Knows display attributes
+
+
+**Collaborators**
+* WeaponSet
+* Rules
 
 You can add images as well:
 
@@ -44,4 +106,3 @@ You can put blocks of code in here like this:
         return total;
     }
 ```
-
