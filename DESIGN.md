@@ -57,9 +57,9 @@ CRC Design
 
 ###Player
 **Responsibilities**
-*Knows score
-*Updates scores
-*Selects weapon from weapon set
+* Knows score
+* Updates scores
+* Selects weapon from weapon set
 * Resets score
 
 
@@ -106,14 +106,15 @@ startGame(rules, weaponset, newPlayers);
 * A player chooses his RPS "weapon" with which he wants to play for this round.
 
 ```java
-    Weapon chooseWeapon(){
-
-}
+// In Game class
+// Assuming Player player
+Weapon w = player.chooseWeapon();
 
 ```
 * Given two players' choices, one player wins the round, and their scores are updated.
 
 ```java
+// In Game class
 int getWinner(Player p1, Player p2){
     //compare weapons
     //1 - p1 weapon wins, 0 - tie, -1 p2 weapon wins
@@ -124,6 +125,7 @@ int getWinner(Player p1, Player p2){
 ```
 * A new choice is added to an existing game and its relationship to all the other choices is updated.
 ```java
+// In Game class
 Weapon newChoice = new Weapon(name);
 weaponset.addWeapon(newChoice);
 // Assume choices it beats is in List<Weapon> winners -> from input file
@@ -137,7 +139,9 @@ for(Weapon w: losers){
 ```
 * A new game is added to the system, with its own relationships for its all its "weapons".
 ```java
-resetGame()
-// Assuming Rule r, WeaponSet w, Player p
-startGame(r, w, p)
+// In RPS class
+// Assuming Game g
+game.resetGame()
+// Assuming Rules rules
+game.updateRules(rules)
 ```
