@@ -96,13 +96,48 @@ You can add images as well:
 Use Cases
 =======
 
-You can put blocks of code in here like this:
+* A new game is started with two players, their scores are reset to 0.
 ```java
-    public int getTotal (Collection<Integer> data) {
-        int total = 0;
-        for (int d : data) {
-            total += d;
-        }
-        return total;
-    }
+// In Game class
+List<Players> newPlayers = createPlayers(2);
+// Assuming Rule rules, WeaponSet weaponset
+startGame(rules, weaponset, newPlayers);
+```
+* A player chooses his RPS "weapon" with which he wants to play for this round.
+
+```java
+    Weapon chooseWeapon(){
+
+}
+
+```
+* Given two players' choices, one player wins the round, and their scores are updated.
+
+```java
+int getWinner(Player p1, Player p2){
+    //compare weapons
+    //1 - p1 weapon wins, 0 - tie, -1 p2 weapon wins
+}
+
+
+
+```
+* A new choice is added to an existing game and its relationship to all the other choices is updated.
+```java
+Weapon newChoice = new Weapon(name);
+weaponset.addWeapon(newChoice);
+// Assume choices it beats is in List<Weapon> winners -> from input file
+// Assume choices it loses to is in List<Weapon> losers -> from input file
+for(Weapon w: winners){
+    rules.addRule(newChoice, w); // Winning choice comes first
+}
+for(Weapon w: losers){
+    rules.addRule(w, newChoice); 
+}
+```
+* A new game is added to the system, with its own relationships for its all its "weapons".
+```java
+resetGame()
+// Assuming Rule r, WeaponSet w, Player p
+startGame(r, w, p)
 ```
